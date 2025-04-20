@@ -6,7 +6,7 @@ class CreateSpinaTables < ActiveRecord::Migration[4.2]
     create_table 'spina_accounts', force: :cascade do |t|
       t.string   'name'
       t.string   'address'
-      t.string   'postal_code'
+      t.string   'articleal_code'
       t.string   'city'
       t.string   'phone'
       t.string   'email'

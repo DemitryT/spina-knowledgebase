@@ -1,0 +1,32 @@
+<%= render Spina::UserInterface::HeaderComponent.new do |header| %>
+  <% header.with_after_breadcrumbs do %>
+    <%= link_to spina.new_admin_knowledgebase_article_path, class: 'btn btn-default h-8 px-2 ml-3' do %>
+      <%= heroicon('plus', style: :solid, class: 'w-6 h-6') %>
+    <% end %>
+  <% end %>
+  <% header.with_navigation do %>
+    <nav class="-mb-3 mt-4">
+      <ul class="inline-flex w-auto rounded-md bg-white">
+        <%= render Spina::UserInterface::TabLinkComponent.new(t('spina.knowledgebase.articles.all_articles'), spina.admin_knowledgebase_articles_path, active: action_name == 'index') %>
+
+        <%= render Spina::UserInterface::TabLinkComponent.new(t('spina.knowledgebase.articles.live_articles'), spina.live_admin_knowledgebase_articles_path, active: action_name == 'live') %>
+
+        <%= render Spina::UserInterface::TabLinkComponent.new(t('spina.knowledgebase.articles.draft_articles'), spina.draft_admin_knowledgebase_articles_path, active: action_name == 'draft') %>
+
+        <%= render Spina::UserInterface::TabLinkComponent.new(t('spina.knowledgebase.articles.scheduled_articles'), spina.future_admin_knowledgebase_articles_path, active: action_name == 'future') %>
+      </ul>
+    </nav>
+  <% end %>
+<% end %>
+
+<div class="p-8">
+  <% if @articles.any? %>
+    <div class="shadow-sm border border-gray-200 bg-white rounded-lg">
+      <%= render partial: 'article', collection: @articles, as: :article %>
+    </div>
+  <% else %>
+    <div class="text-gray-700 italic">
+      <%= t('spina.knowledgebase.articles.no_articles') %>
+    </div>
+  <% end %>
+</div>

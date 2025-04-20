@@ -1,24 +1,24 @@
 # frozen_string_literal: true
 
 Spina::Engine.routes.draw do
-  namespace :blog do
-    root to: 'posts#index'
+  namespace :knowledgebase do
+    root to: 'articles#index'
 
-    get ':id', to: 'posts#show', as: :post
+    get ':id', to: 'articles#show', as: :article
 
-    # Redirects for old sites that used the old blog path
-    get 'posts/', to: redirect('/blog'), as: :old_index
-    get 'posts/:id', to: redirect('/blog/%{id}'), as: :old_post
+    # Redirects for old sites that used the old knowledgebase path
+    get 'articles/', to: redirect('/knowledgebase'), as: :old_index
+    get 'articles/:id', to: redirect('/knowledgebase/%{id}'), as: :old_article
 
-    get 'feed.atom', to: 'posts#index', as: :rss_feed, defaults: { format: :atom }
+    get 'feed.atom', to: 'articles#index', as: :rss_feed, defaults: { format: :atom }
     get 'categories/:id', to: 'categories#show', as: :category
-    get 'archive/:year(/:month)', to: 'posts#archive', as: :archive_posts
+    get 'archive/:year(/:month)', to: 'articles#archive', as: :archive_articles
   end
 
   namespace :admin do
-    namespace :blog do
+    namespace :knowledgebase do
       resources :categories
-      resources :posts, except: :show do
+      resources :articles, except: :show do
         collection do
           get :live
           get :draft

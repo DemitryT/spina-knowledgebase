@@ -1,0 +1,4 @@
+<li class="<%= dom_class(article) %>" id="<%= dom_id(article) %>">
+  <h3><%= link_to article.title, spina.knowledgebase_article_path(article) %></h3>
+  <%= article.excerpt&.html_safe %>
+</li>

@@ -32,19 +32,19 @@ Metrics/MethodLength:
 # SupportedStyles: nested, compact
 Style/ClassAndModuleChildren:
   Exclude:
-    - 'spec/models/spina/blog/category_spec.rb'
-    - 'spec/models/spina/blog/post_spec.rb'
+    - 'spec/models/spina/knowledgebase/category_spec.rb'
+    - 'spec/models/spina/knowledgebase/article_spec.rb'
 
 # Offense count: 5
 Style/Documentation:
   Exclude:
     - 'spec/**/*'
     - 'test/**/*'
-    - 'db/migrate/1_create_spina_blog_posts.rb'
-    - 'db/migrate/2_create_spina_blog_friendly_id_slugs.rb'
-    - 'db/migrate/3_create_spina_blog_categories.rb'
-    - 'db/migrate/4_add_category_id_to_spina_blog_posts.rb'
-    - 'lib/generators/spina_blog/install_generator.rb'
+    - 'db/migrate/1_create_spina_knowledgebase_articles.rb'
+    - 'db/migrate/2_create_spina_knowledgebase_friendly_id_slugs.rb'
+    - 'db/migrate/3_create_spina_knowledgebase_categories.rb'
+    - 'db/migrate/4_add_category_id_to_spina_knowledgebase_articles.rb'
+    - 'lib/generators/spina_knowledgebase/install_generator.rb'
 
 # Offense count: 2
 Style/MixinUsage:

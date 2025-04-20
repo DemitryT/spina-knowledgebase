@@ -3,7 +3,7 @@
 ::Spina::Theme.register do |theme|
   theme.name = 'default'
   theme.title = 'Default Theme'
-  theme.plugins = ['blog']
+  theme.plugins = ['knowledgebase']
 
   theme.page_parts = [{
     name: 'text',

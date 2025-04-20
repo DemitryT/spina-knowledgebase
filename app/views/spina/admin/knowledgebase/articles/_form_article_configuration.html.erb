@@ -1,0 +1,45 @@
+<%= render Spina::Forms::GroupComponent.new(label: Spina::Knowledgebase::Article.human_attribute_name(:category), description: Spina::Knowledgebase::Article.human_attribute_name(:category_description)) do %>
+  <%= render Spina::Forms::LabelComponent.new(f, :category) %>
+  <%= f.select :category_id, Spina::Knowledgebase::Category.all.collect{|u| [u.name, u.id]}, {prompt: true}, class: 'form-select', data: {controller: "select-placeholder", action: "select-placeholder#update"} %>
+<% end %>
+
+<div class="border-t border-gray-200 my-6"></div>
+
+<%= render Spina::Forms::GroupComponent.new(label: Spina::Knowledgebase::Article.human_attribute_name(:draft), description: Spina::Knowledgebase::Article.human_attribute_name(:draft_description)) do %>
+  <%= render Spina::Forms::LabelComponent.new(f, :draft) %>
+  <%= render Spina::Forms::SwitchComponent.new(f, :draft) %>
+<% end %>
+
+<div class="border-t border-gray-200 my-6"></div>
+
+<%= render Spina::Forms::GroupComponent.new(label: Spina::Knowledgebase::Article.human_attribute_name(:featured), description: Spina::Knowledgebase::Article.human_attribute_name(:featured_description)) do %>
+  <%= render Spina::Forms::LabelComponent.new(f, :featured) %>
+  <%= render Spina::Forms::SwitchComponent.new(f, :featured) %>
+<% end %>
+
+<div class="border-t border-gray-200 my-6"></div>
+
+<%= render Spina::Forms::GroupComponent.new(label: Spina::Knowledgebase::Article.human_attribute_name(:slug), description: Spina::Knowledgebase::Article.human_attribute_name(:slug_description)) do %>
+  <%= render Spina::Forms::LabelComponent.new(f, :slug) %>
+  <%= render Spina::Forms::TextFieldComponent.new(f, :slug) %>
+
+  <% if @article.slug %>
+    <div class="text-gray-400 text-xs mt-2">
+      <%= t('spina.knowledgebase.articles.current_permalink', current_permalink: "/knowledgebase/articles/#{@article.slug}") %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="border-t border-gray-200 my-6"></div>
+
+<%= render Spina::Forms::GroupComponent.new(label: Spina::Knowledgebase::Article.human_attribute_name(:published_at), description: Spina::Knowledgebase::Article.human_attribute_name(:published_at_description)) do %>
+  <%= render Spina::Forms::LabelComponent.new(f, :published_at) %>
+  <%= render Spina::Forms::TextFieldComponent.new(f, :published_at) %>
+<% end %>
+
+<div class="border-t border-gray-200 my-6"></div>
+
+<%= render Spina::Forms::GroupComponent.new(label: Spina::Knowledgebase::Article.human_attribute_name(:spina_user), description: Spina::Knowledgebase::Article.human_attribute_name(:spina_user_description)) do %>
+  <%= render Spina::Forms::LabelComponent.new(f, :spina_user) %>
+  <%= f.select :user_id, Spina::User.all.collect{|u| [u.name, u.id]}, {prompt: true}, class: 'form-select', data: {controller: "select-placeholder", action: "select-placeholder#update"} %>
+<% end %>

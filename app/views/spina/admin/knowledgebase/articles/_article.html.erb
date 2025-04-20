@@ -1,0 +1,32 @@
+<div class="border-b border-gray-200 flex items-center justify-between space-x-8 pr-2">
+
+  <%= link_to spina.edit_admin_knowledgebase_article_path(article.id), class: 'flex items-center text-spina text-sm p-4 hover:text-spina-dark font-medium' do %>
+    <% if article.featured? %>
+      <%= heroicon('star', style: :solid, class: 'w-6 h-6 text-yellow-500 mr-3') %>
+    <% end %>
+    <div>
+      <%= article.title %>
+      <div class="text-gray-400 text-xs">
+        <%= t('spina.knowledgebase.articles.created_at_in_words', date: time_ago_in_words(article.created_at)) %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="flex-1"></div>
+
+  <div>
+    <% if article.draft? %>
+      <span class="text-sm text-gray-400"><%=t 'spina.knowledgebase.articles.concept' %></span>
+    <% elsif article.published_at and article.published_at > Time.now %>
+      <span class="text-sm text-gray-400">
+        <%= t('spina.knowledgebase.articles.scheduled_publication_date', date: article.decorate.published_date) %>
+      </span>
+    <% end %>
+  </div>
+
+  <div>
+    <%= link_to spina.edit_admin_knowledgebase_article_path(article.id), class: "btn btn-default px-3" do %>
+      <%= heroicon('pencil', style: :solid, class: 'w-4 h-4') %>
+    <% end %>
+  </div>
+</div>

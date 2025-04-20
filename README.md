@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/SpinaCMS/spina-blog.svg?branch=master)](https://travis-ci.org/initforthe/spina-blog) [![Code Climate](https://codeclimate.com/github/initforthe/spina-blog/badges/gpa.svg)](https://codeclimate.com/github/initforthe/spina-blog) [![Test Coverage](https://codeclimate.com/github/initforthe/spina-blog/badges/coverage.svg)](https://codeclimate.com/github/initforthe/spina-blog/coverage)
+[![Build Status](https://travis-ci.org/SpinaCMS/spina-knowledgebase.svg?branch=master)](https://travis-ci.org/initforthe/spina-knowledgebase) [![Code Climate](https://codeclimate.com/github/initforthe/spina-knowledgebase/badges/gpa.svg)](https://codeclimate.com/github/initforthe/spina-knowledgebase) [![Test Coverage](https://codeclimate.com/github/initforthe/spina-knowledgebase/badges/coverage.svg)](https://codeclimate.com/github/initforthe/spina-knowledgebase/coverage)
 
-# Spina::Blog
-Simple blog engine for [Spina CMS](https://www.spinacms.com/). It supports posts and categories.
+# Spina::Knowledgebase
+Simple knowledgebase engine for [Spina CMS](https://www.spinacms.com/). It supports articles and categories.
 
 ## Usage
 How to use my plugin.
@@ -10,7 +10,7 @@ How to use my plugin.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'spina-blog'
+gem 'spina-knowledgebase'
 ```
 
 And then execute:
@@ -20,12 +20,12 @@ $ bundle
 
 And install:
 ```bash
-$ rails g spina_blog:install
+$ rails g spina_knowledgebase:install
 ```
 
 Or install it yourself as:
 ```bash
-$ gem install spina-blog
+$ gem install spina-knowledgebase
 ```
 
 Add to your Spina theme:
@@ -34,7 +34,7 @@ Add to your Spina theme:
 
 Spina::Theme.register do |theme|
   # ...
-  theme.plugins = ['blog']
+  theme.plugins = ['knowledgebase']
 end
 
 ```

@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2021_04_04_093002) do
   create_table "spina_accounts", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.string "postal_code"
+    t.string "articleal_code"
     t.string "city"
     t.string "phone"
     t.string "email"
@@ -85,15 +85,15 @@ ActiveRecord::Schema.define(version: 2021_04_04_093002) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "spina_blog_categories", id: :serial, force: :cascade do |t|
+  create_table "spina_knowledgebase_categories", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["slug"], name: "index_spina_blog_categories_on_slug"
+    t.index ["slug"], name: "index_spina_knowledgebase_categories_on_slug"
   end
 
-  create_table "spina_blog_posts", id: :serial, force: :cascade do |t|
+  create_table "spina_knowledgebase_articles", id: :serial, force: :cascade do |t|
     t.string "title"
     t.text "excerpt"
     t.text "content"
@@ -108,10 +108,10 @@ ActiveRecord::Schema.define(version: 2021_04_04_093002) do
     t.boolean "featured", default: false
     t.string "seo_title"
     t.text "description"
-    t.index ["category_id"], name: "index_spina_blog_posts_on_category_id"
-    t.index ["image_id"], name: "index_spina_blog_posts_on_image_id"
-    t.index ["slug"], name: "index_spina_blog_posts_on_slug"
-    t.index ["user_id"], name: "index_spina_blog_posts_on_user_id"
+    t.index ["category_id"], name: "index_spina_knowledgebase_articles_on_category_id"
+    t.index ["image_id"], name: "index_spina_knowledgebase_articles_on_image_id"
+    t.index ["slug"], name: "index_spina_knowledgebase_articles_on_slug"
+    t.index ["user_id"], name: "index_spina_knowledgebase_articles_on_user_id"
   end
 
   create_table "spina_image_collections", force: :cascade do |t|
@@ -317,6 +317,6 @@ ActiveRecord::Schema.define(version: 2021_04_04_093002) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "spina_blog_posts", "spina_images", column: "image_id"
-  add_foreign_key "spina_blog_posts", "spina_users", column: "user_id"
+  add_foreign_key "spina_knowledgebase_articles", "spina_images", column: "image_id"
+  add_foreign_key "spina_knowledgebase_articles", "spina_users", column: "user_id"
 end
