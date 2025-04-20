@@ -79,8 +79,13 @@ module Spina
       end
 
       def add_view_path
-        ActiveSupport::Deprecation.warn 'Knowledgebase views should be moved from "app/views/spina/knowledgebase" to "app/views/(your_theme)/knowledgebase".'
-        prepend_view_path ["app/views/#{@theme}", "app/views/spina/", Spina::Knowledgebase::Engine.root.join('app', 'views', 'spina')]
+        # Optional: remove or comment out the deprecation warning
+        # ActiveSupport::Deprecation.warn 'Knowledgebase views should be moved...'
+        prepend_view_path [
+          Rails.root.join("app", "views", @theme),
+          Rails.root.join("app", "views", "spina"),
+          Spina::Knowledgebase::Engine.root.join("app", "views", "spina")
+        ]
       end
     end
   end
